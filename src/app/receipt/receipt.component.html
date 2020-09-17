@@ -1,0 +1,25 @@
+<button type="button" class="btn btn-primary" (click)="calculateTotal()">Calculate</button>
+
+<div *ngIf="showReceipt">
+
+  <h3>Receipt</h3>
+
+  <div class="card">
+
+    <div class="class=card-body">
+
+    </div>
+    <div *ngFor="let item of basket | keyvalue">
+      <p>{{item.key}}: {{(item.value.price * item.value.amount).toFixed(2)}}
+        {{item.value.amount > 1 ? '(' + item.value.amount + ' @ ' + item.value.price.toFixed(2) + ')': ''}}</p>
+    </div>
+
+    <p>Sales Tax: {{totalTax.toFixed(2)}}</p>
+    <p>Total: {{totalPrice.toFixed(2)}}</p>
+  </div>
+
+  <button type="button" class="btn btn-primary" (click)="reset()">Reset</button>
+</div>
+
+
+

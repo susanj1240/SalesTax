@@ -1,0 +1,14 @@
+<h3>Plase Type in your input: </h3>
+
+<div class="form-group">
+  <label>Input: </label>
+  <input [(ngModel)]="inputLine">
+
+</div>
+
+<button type="button" class="btn btn-primary" (click)="add()">Submit</button>
+
+<h3>Items in basket: </h3>
+<ul class="listgroup list-group-horizontal" *ngFor="let i of basket | keyvalue">
+  <li class="list-group-item">{{i.value.amount}} {{i.key}} at {{(i.value.price * i.value.amount).toFixed(2)}}</li>
+</ul>
